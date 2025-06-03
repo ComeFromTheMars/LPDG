@@ -28,7 +28,7 @@ def train_student(params):
     if params.labeltype=="original":
         regenerationDataset = train_dataset
     elif params.labeltype=='diffusion':
-        train_regen = './dataset/' + dataset + '/wo_pooling_TrainSet_Z_3in10.0001_r.pth'
+        train_regen = './dataset/' + dataset + '/TrainSet_Z_3in10.0001_r.pth'
         train_regeneration=torch.load(train_regen)
         regenerationDataset=RegenerationDataset(train_regeneration,t='train_regen',path=None)
         regenerationDataset=train_dataset+regenerationDataset
@@ -151,7 +151,7 @@ if __name__ == "__main__":
     parser.add_argument('--seed', type=int, default=2025, help='number of folds for cross_validation.')
     parser.add_argument('--weight_decay', type=float, default=1e-5, help='weight decay.')
     parser.add_argument('--lr', type=float, default=0.001, help='learning rate.')
-    parser.add_argument('--dataset', type=str, default='Assistment12', help='choose a dataset.')
+    parser.add_argument('--dataset', type=str, default='Assistment09', help='choose a dataset.')
     parser.add_argument('--model', type=str, default='simpleKT', help='choose a model.')
     parser.add_argument('--device', type=str, default='cuda', help='choose a device.')
     parser.add_argument('--max_length', type=int, default=50, help='choose a value for max length.')
